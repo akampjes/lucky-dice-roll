@@ -9,6 +9,10 @@
   </head>
 
   <body>
+  <% if authenticated? %>
+      <%= link_to 'Logout', session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+
     <%= yield %>
   </body>
 </html>

@@ -34,10 +34,9 @@ class SessionsController < ApplicationController
   # DELETE /sessions/1
   # DELETE /sessions/1.json
   def destroy
-    # TODO: use this to logout
     session[:flybuys_number] = nil
     respond_to do |format|
-      format.html { redirect_to sessions_url, notice: 'Session was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Session was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

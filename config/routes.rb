@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :plays
-  resources :sessions
+  resource :session
 
   root 'plays#index'
 end
