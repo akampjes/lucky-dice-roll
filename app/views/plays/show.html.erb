@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Flybuys number:</strong>
+  <%= @play.flybuys_number %>
+</p>
+
+<p>
+  <strong>Points:</strong>
+  <%= @play.points %>
+</p>
+
+<p>
+  <strong>Bet:</strong>
+  <%= @play.bet %>
+</p>
+
+<%= link_to 'Edit', edit_play_path(@play) %> |
+<%= link_to 'Back', plays_path %>
