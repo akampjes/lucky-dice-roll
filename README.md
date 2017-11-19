@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
+2.4.2
 
-* System dependencies
-
-* Configuration
+* Node version
+v8.4.0
 
 * Database creation
-
-* Database initialization
+Setup and migrate - uses sqlite
 
 * How to run the test suite
+Run individual tests - mostly unit tests for services and models
 
-* Services (job queues, cache servers, search engines, etc.)
+* Dev environment
+`rails s`
+AND
+`./bin/webpack-dev-server`
 
-* Deployment instructions
-
-* ...
