@@ -1,0 +1,15 @@
+<%= form_for(@session) do |f| %>
+    <div class="actions">
+      <div>
+        <%= f.label :flybuys_number %>
+        <%= f.text_field :flybuys_number %>
+      </div>
+      <div>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+
+      <%= f.submit 'Login' %>
+    </div>
+<% end %>
+
