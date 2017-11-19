@@ -19,6 +19,21 @@ class Play extends React.Component {
 
   roll() {
     console.log('clicked roll');
+    let data = {};
+
+    Rails.ajax({
+      type: "POST",
+      url: "/roll.json",
+      data: data,
+      success: function(response){
+        console.log("SUCCESS!!");
+      },
+      error: function(repsonse){
+        console.log("There was an error");
+        console.log(response);
+      }
+    })
+
   }
 
   render () {

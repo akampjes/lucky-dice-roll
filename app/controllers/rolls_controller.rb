@@ -8,10 +8,10 @@ class RollsController < ApplicationController
   # POST /rolls.json
   def create
     roll = Roll.new(play: current_play)
-    roll_result = RollDice.new(play: current_play, roll: roll).call
+    @roll = RollDice.new(play: current_play, roll: roll).call
 
     respond_to do |format|
-      if roll_result
+      if @roll
         format.html { redirect_to play_path, notice: 'Roll was successfully created.' }
         format.json { render :show, status: :created, location: @roll }
       else

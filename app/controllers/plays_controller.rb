@@ -16,17 +16,14 @@ class PlaysController < ApplicationController
   # POST /plays
   # POST /plays.json
   def create
-    flybuys_number = session[:flybuys_number]
-    current_points = GetPoints.new(flybuys_number).call
-
-    # TODO: Check here to check when they last played
-
-    @play = Play.new(play_params)
-    @play.flybuys_number = flybuys_number
-    @play.points = current_points
+    @play = CreateNewPlay.new(
+      flybuys_number: session[:flybuys_number],
+      current_play: current_play,
+      bet: params[:play][:bet]
+    ).call
 
     respond_to do |format|
-      if @play.save
+      if @play
         format.html { redirect_to play_path, notice: 'Play was successfully created.' }
         format.json { render :show, status: :created, location: @play }
       else
@@ -35,10 +32,4 @@ class PlaysController < ApplicationController
       end
     end
   end
-
-  private
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def play_params
-      params.require(:play).permit(:bet)
-    end
 end

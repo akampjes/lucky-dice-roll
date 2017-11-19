@@ -24,6 +24,7 @@ class Play < ApplicationRecord
       bet: bet,
       start_points: points,
       current_points: current_points,
+      finished: !!finished_at,
       rolls: [
         rolls.map { |roll|
           {

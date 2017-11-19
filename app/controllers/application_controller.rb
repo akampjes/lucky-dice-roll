@@ -17,6 +17,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_play
-    Play.where(flybuys_number: session[:flybuys_number], finished_at: nil).first
+    Play.where(flybuys_number: session[:flybuys_number]).order(created_at: :desc).first
   end
 end
