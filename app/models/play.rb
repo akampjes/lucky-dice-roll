@@ -18,6 +18,23 @@ class Play < ApplicationRecord
     rolls.any?(&:unsuccessful?)
   end
 
+  def data
+    {
+      flybuys_number: flybuys_number,
+      bet: bet,
+      start_points: points,
+      current_points: current_points,
+      rolls: [
+        rolls.map { |roll|
+          {
+            result: roll.result,
+            success: roll.successful?
+          }
+        }
+      ]
+    }
+  end
+
   private
 
   def count_wins

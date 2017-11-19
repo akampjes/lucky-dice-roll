@@ -15,7 +15,4 @@
   <%= current_play.bet %>
 </p>
 
-<% if true %>
-    <%= react_component("Play", { flybuys_number: flybuys_number, bet: current_play.bet}) %>
-<% else %>
-<% end %>
+<%= react_component("Play", current_play.data) %>
