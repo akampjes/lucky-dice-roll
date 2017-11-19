@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  helper_method :current_play
+
   protect_from_forgery with: :exception
 
   before_action :authenticate
@@ -11,10 +13,10 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticated?
-      return true if session[:flybuys_number]
+    return true if session[:flybuys_number]
   end
 
   def current_play
-    session[:current_play]
+    Play.where(flybuys_number: session[:flybuys_number], finished_at: nil).first
   end
 end
