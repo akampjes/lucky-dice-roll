@@ -1,12 +1,13 @@
 class CreateNewPlay
   attr_accessor :flybuys_number, :current_play, :bet
-  def initialize(flybuys_number:, current_play: nil)
+  def initialize(flybuys_number:, current_play: , bet:)
     @flybuys_number = flybuys_number
     @current_play = current_play
+    @bet = bet
   end
 
   def call
-    return false unless current_play.finished?
+    return false unless current_play.game_over?
 
     current_points = GetPoints.new(flybuys_number).call
 

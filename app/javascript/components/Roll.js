@@ -5,7 +5,6 @@ class Roll extends React.Component {
     return (
       <div>
         <div>Result: {this.props.result}</div>
-        <div>Success: {this.props.success}</div>
       </div>
     );
   }

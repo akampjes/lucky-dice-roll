@@ -19,7 +19,7 @@ class PlaysController < ApplicationController
     @play = CreateNewPlay.new(
       flybuys_number: session[:flybuys_number],
       current_play: current_play,
-      bet: params[:play][:bet]
+      bet: params['bet']
     ).call
 
     respond_to do |format|

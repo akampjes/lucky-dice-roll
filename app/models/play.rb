@@ -25,14 +25,13 @@ class Play < ApplicationRecord
       start_points: points,
       current_points: current_points,
       finished: !!finished_at,
-      rolls: [
+      rolls:
         rolls.map { |roll|
           {
             result: roll.result,
             success: roll.successful?
           }
         }
-      ]
     }
   end
 

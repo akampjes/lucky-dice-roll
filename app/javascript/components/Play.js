@@ -1,14 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Roll from './Roll'
+import NewPlay from './NewPlay'
 
 class Play extends React.Component {
 
   rolls() {
-    this.props.rolls.map((roll) => {
+    return this.props.rolls.map(roll => {
       return (
-        <Roll roll={roll.result} success={roll.success}>
-        </Roll>
+        <Roll result={roll.result} success={roll.success} />
       );
     });
   }
@@ -26,7 +26,8 @@ class Play extends React.Component {
       url: "/roll.json",
       data: data,
       success: function(response){
-        console.log("SUCCESS!!");
+        //console.log("SUCCESS!!");
+        window.location.reload();
       },
       error: function(repsonse){
         console.log("There was an error");
@@ -36,18 +37,33 @@ class Play extends React.Component {
 
   }
 
+  finished() {
+    if(this.props.finished) {
+      return(
+        <div>
+          <div>Game Over</div>
+          <NewPlay/>
+        </div>
+      );
+    } else {
+      return(
+        <button onClick={() => this.roll() } >Roll me</button>
+      );
+    }
+  }
+
   render () {
     console.log(this.props);
 
     return (
       <div>
         <div>Flybuys Number: {this.props.flybuys_number}</div>
-        <div>Start points: {this.props.current_points}</div>
+        <div>Start points: {this.props.start_points}</div>
         <div>Current points: {this.props.current_points}</div>
         <div>Points difference: {this.point_difference()}</div>
         <div>Bet: {this.props.bet}</div>
         {this.rolls()}
-        <button onClick={() => this.roll() } >Roll me</button>
+        {this.finished()}
       </div>
     );
   }
