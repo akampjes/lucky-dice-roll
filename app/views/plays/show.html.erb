@@ -1,18 +1,3 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Flybuys number:</strong>
-  <%= current_play.flybuys_number %>
-</p>
-
-<p>
-  <strong>Points:</strong>
-  <%= current_play.points %>
-</p>
-
-<p>
-  <strong>Bet:</strong>
-  <%= current_play.bet %>
-</p>
-
-<%= react_component("Play", current_play.data) %>
+<%= react_component("Play", current_play.try!(:data)) %>

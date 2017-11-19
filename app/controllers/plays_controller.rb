@@ -2,7 +2,6 @@ class PlaysController < ApplicationController
   # GET /plays/1
   # GET /plays/1.json
   def show
-    redirect_to new_play_path unless current_play
   end
 
   # GET /plays/new

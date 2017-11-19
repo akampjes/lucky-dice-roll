@@ -7,7 +7,7 @@ class CreateNewPlay
   end
 
   def call
-    return false unless current_play.game_over?
+    return false if current_play && !current_play.game_over?
 
     current_points = GetPoints.new(flybuys_number).call
 

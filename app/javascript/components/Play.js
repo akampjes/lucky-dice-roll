@@ -55,17 +55,24 @@ class Play extends React.Component {
   render () {
     console.log(this.props);
 
-    return (
-      <div>
-        <div>Flybuys Number: {this.props.flybuys_number}</div>
-        <div>Start points: {this.props.start_points}</div>
-        <div>Current points: {this.props.current_points}</div>
-        <div>Points difference: {this.point_difference()}</div>
-        <div>Bet: {this.props.bet}</div>
-        {this.rolls()}
-        {this.finished()}
-      </div>
-    );
+    if(this.props.current_points){
+      return (
+        <div>
+          <div>Flybuys Number: {this.props.flybuys_number}</div>
+          <div>Start points: {this.props.start_points}</div>
+          <div>Current points: {this.props.current_points}</div>
+          <div>Points difference: {this.point_difference()}</div>
+          <div>Bet: {this.props.bet}</div>
+          {this.rolls()}
+          {this.finished()}
+        </div>
+      );
+    } else {
+      return (
+        <NewPlay/>
+      )
+    }
+
   }
 }
 
