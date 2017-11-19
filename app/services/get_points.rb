@@ -10,6 +10,7 @@ class GetPoints
   private
 
   def get_points_api
+    # TODO: document a points API
     10000
   end
 end

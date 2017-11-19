@@ -18,6 +18,10 @@ class Play < ApplicationRecord
     rolls.any?(&:unsuccessful?)
   end
 
+  def points_difference
+    current_points - points
+  end
+
   def data
     {
       flybuys_number: flybuys_number,

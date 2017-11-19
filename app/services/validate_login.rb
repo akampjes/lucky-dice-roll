@@ -15,7 +15,7 @@ class ValidateLogin
   private
 
   def validate_login_api
-    # Mocked out here for now
+    # TODO: Document a validate_login API
     true
   end
 end
